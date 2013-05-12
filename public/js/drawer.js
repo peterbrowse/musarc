@@ -23,8 +23,8 @@ $(document).ready(function() {
 		document.body.appendChild(container);
 
 		camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-		camera.position.z = 500;
-		camera.position.y = 300;
+		camera.position.z = 600;
+		camera.position.y = 500;
 
 		scene = new THREE.Scene();
 
@@ -56,7 +56,7 @@ $(document).ready(function() {
 		plane.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 0, 0 ) );
 		parent.add(plane);
 		parent.rotation.x = -Math.PI / 2;
-		parent.rotation.z = 0;
+		parent.rotation.z = Math.PI / 4;
 		
 		var geometry = new THREE.Geometry();
 
@@ -82,17 +82,6 @@ $(document).ready(function() {
 		var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.5 } ) );
 		parent.add( line );
 		scene.add(parent);
-		
-		var pointLight =
-  new THREE.PointLight(0xFFFFFF);
-
-// set its position
-pointLight.position.x = 0;
-pointLight.position.y = 500;
-pointLight.position.z = 1000;
-
-// add to the scene
-scene.add(pointLight);
 		
 		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 		
